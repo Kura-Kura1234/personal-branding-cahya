@@ -4,11 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cahya | Personal Branding</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,700;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+
+
 
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -36,11 +38,11 @@
       <div class="home-text">
         <span class="home-eyebrow">✦ Selamat Datang ✦</span>
         <h1 class="home-name">Cahyaning Wulan<br>Shafarahma Putri</h1>
-        <h2 class="home-nick">(Cahya)</h2>
+        <h2 class="home-nick">Women in Engineering</h2>
 
-        <!-- TAGLINE BERJALAN -->
+        <!-- TAGLINE TYPING -->
         <div class="tagline-wrap">
-          <span class="tagline-running">Creative with purpose.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Creative with purpose.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;Creative with purpose.&nbsp;&nbsp;&nbsp;✦&nbsp;&nbsp;&nbsp;</span>
+          <span class="tagline-typing" id="typewriter"></span><span class="tagline-cursor">|</span>
         </div>
 
         <p class="description">
@@ -57,7 +59,7 @@
       <!-- KANAN: FOTO -->
       <div class="home-photo-side">
         <div class="photo-frame">
-          <img src="https://i.ibb.co.com/ywpWvyh/Whats-App-Image-2026-05-02-at-09-30-25.jpg" alt="Foto Cahya" class="profile-photo">
+          <img src="img/kl2.jpeg" alt="Foto Cahya" class="profile-photo">
           <div class="photo-deco-ring"></div>
         </div>
         <!-- BADGE MELAYANG -->
@@ -97,9 +99,27 @@
     </div>
   </div>
 
+  <!-- TYPEWRITER SCRIPT -->
+  <script>
+    const texts = ["Creative with purpose."];
+    let i = 0, j = 0, deleting = false;
+    const el = document.getElementById('typewriter');
+    function type() {
+      const current = texts[i];
+      if (!deleting) {
+        el.textContent = current.slice(0, ++j);
+        if (j === current.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        el.textContent = current.slice(0, --j);
+        if (j === 0) { deleting = false; i = (i + 1) % texts.length; }
+      }
+      setTimeout(type, deleting ? 60 : 100);
+    }
+    type();
+  </script>
+
   <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="site-footer-inner">
+  <footer class="site-footer">    <div class="site-footer-inner">
       <div class="footer-brand">
         <span class="footer-logo">Cahya</span>
         <p class="footer-tagline">Creative with purpose.</p>
